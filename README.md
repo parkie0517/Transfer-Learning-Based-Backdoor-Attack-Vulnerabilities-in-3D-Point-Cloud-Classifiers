@@ -13,7 +13,6 @@ Key Words : Transfer Learning, Point Cloud Classification, Backdoor Attack
 ## Experiment Results
 ![image](https://github.com/parkie0517/Transfer-Learning-Based-Backdoor-Attack-Vulnerabilities-in-3D-Point-Cloud-Classifiers/assets/80407632/d0a94b6b-1077-405e-a53f-cab27448a8bb)  
 
-![image](https://github.com/parkie0517/Transfer-Learning-Based-Backdoor-Attack-Vulnerabilities-in-3D-Point-Cloud-Classifiers/assets/80407632/ae9b38c8-f21a-4ff7-8907-4febd84a2740)  
+![image](https://github.com/parkie0517/Transfer-Learning-Based-Backdoor-Attack-Vulnerabilities-in-3D-Point-Cloud-Classifiers/assets/80407632/f7621355-8dc2-4dfe-8135-da97d4e74700)  
 
 ![image](https://github.com/parkie0517/Transfer-Learning-Based-Backdoor-Attack-Vulnerabilities-in-3D-Point-Cloud-Classifiers/assets/80407632/7a190ea0-e70c-4e3b-bb33-a1d5d55e18ea)  
-
