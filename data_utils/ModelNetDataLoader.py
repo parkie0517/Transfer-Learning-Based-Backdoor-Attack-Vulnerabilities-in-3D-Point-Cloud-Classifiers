@@ -71,13 +71,15 @@ class ModelNetDataLoader(Dataset):
 
         shape_ids = {}
         if self.num_category == 10:
-            shape_ids['train'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_train_33.txt'))]
-            shape_ids['test'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_test_asr.txt'))]
+            shape_ids['train'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_train_33.txt'))] # Fine-tune Dataset
+            shape_ids['test'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_test.txt'))]
+            shape_ids['test_asr'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_test_asr.txt'))] # asr 검증용 데이터셋
+
         else:
             shape_ids['train'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet40_train.txt'))]
             shape_ids['test'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet40_test.txt'))]
 
-        assert (split == 'train' or split == 'test')
+        assert (split == 'train' or split == 'test' or split == 'test_asr')
         shape_names = ['_'.join(x.split('_')[0:-1]) for x in shape_ids[split]]
         self.datapath = [(shape_names[i], os.path.join(self.root, shape_names[i], shape_ids[split][i]) + '.txt') for i
                          in range(len(shape_ids[split]))]

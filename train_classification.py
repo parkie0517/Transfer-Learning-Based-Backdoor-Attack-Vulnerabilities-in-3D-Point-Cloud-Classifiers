@@ -117,8 +117,9 @@ def main(args):
     test_dataset = ModelNetDataLoader(root=data_path, args=args, split='test', process_data=args.process_data)
     trainDataLoader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=10, drop_last=True) # DataLoader는 utils에 있는 거 그냥 사용하면 됨!
     testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10) # testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10)
-    # testASR_dataset
-    # testASRDataLoader
+    
+    testASR_dataset = ModelNetDataLoader(root=data_path, args=args, split='test_asr', process_data=args.process_data)
+    testASRDataLoader = torch.utils.data.DataLoader(testASR_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10)
 
 
     '''Step 3: 모델 불러오기 (미리 정의된 모델 사용)'''
@@ -237,6 +238,11 @@ def main(args):
                     'optimizer_state_dict': optimizer.state_dict(),
                 }
                 torch.save(state, savepath)
+
+            # ASR
+            instance_acc, class_acc = test(classifier.eval(), testASRDataLoader, num_class=num_class)
+            log_string('Test Instance ASR: %f, Class ASR: %f' % (instance_acc, class_acc))
+            log_string('Best Instance ASR: %f, Class ASR: %f' % (best_instance_acc, best_class_acc))
 
     logger.info('End of training...')
 
