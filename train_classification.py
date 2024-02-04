@@ -214,7 +214,7 @@ def main(args):
             # log_string('Best Instance Accuracy: %f, Class Accuracy: %f' % (best_instance_acc, best_class_acc))
             # Write on Tensorbard
             writer.add_scalar('Acc/test_acc', instance_acc, epoch) # use add_scalar() function to write
-            
+            """
             if (instance_acc >= best_instance_acc):
                 logger.info('Save model...')
                 savepath = str(checkpoints_dir) + '/best_model2.pth'
@@ -227,9 +227,9 @@ def main(args):
                     'optimizer_state_dict': optimizer.state_dict(),
                 }
                 torch.save(state, savepath)
-
+            """
             global_epoch += 1
-
+            """
             # 최종 모델 저장
             if epoch == args.epoch - 1: # 최종 에포크인 경우
                 logger.info('Save final model...')
@@ -243,7 +243,7 @@ def main(args):
                     'optimizer_state_dict': optimizer.state_dict(),
                 }
                 torch.save(state, savepath)
-
+            """
             ##########################################################
             # ASR ####################################################
             ##########################################################
@@ -256,7 +256,7 @@ def main(args):
     logger.info('End of training...')
 
 if __name__ == '__main__': # Step 1
-    writer = SummaryWriter('./tensoarboard/pointnet/ft33') # Write training results in './logs/' directory
+    writer = SummaryWriter('./tensorboard/pointnetPP/ft') # Write training results in './logs/' directory
     args = parse_args()
     main(args)
     writer.close() # Must include this code when finish training results
