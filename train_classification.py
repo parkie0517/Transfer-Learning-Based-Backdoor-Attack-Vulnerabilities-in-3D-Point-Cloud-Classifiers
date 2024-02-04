@@ -117,6 +117,9 @@ def main(args):
     test_dataset = ModelNetDataLoader(root=data_path, args=args, split='test', process_data=args.process_data)
     trainDataLoader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=10, drop_last=True) # DataLoader는 utils에 있는 거 그냥 사용하면 됨!
     testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10) # testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10)
+    # testASR_dataset
+    # testASRDataLoader
+
 
     '''Step 3: 모델 불러오기 (미리 정의된 모델 사용)'''
     num_class = args.num_category
