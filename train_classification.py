@@ -207,7 +207,7 @@ def main(args):
             if (class_acc >= best_class_acc):
                 best_class_acc = class_acc
             log_string('Test Instance Accuracy: %f, Class Accuracy: %f' % (instance_acc, class_acc))
-            log_string('Best Instance Accuracy: %f, Class Accuracy: %f' % (best_instance_acc, best_class_acc))
+            # log_string('Best Instance Accuracy: %f, Class Accuracy: %f' % (best_instance_acc, best_class_acc))
 
             
             if (instance_acc >= best_instance_acc):
@@ -241,8 +241,7 @@ def main(args):
 
             # ASR
             instance_acc, class_acc = test(classifier.eval(), testASRDataLoader, num_class=num_class)
-            log_string('Test Instance ASR: %f, Class ASR: %f' % (instance_acc, class_acc))
-            log_string('Best Instance ASR: %f, Class ASR: %f' % (best_instance_acc, best_class_acc))
+            log_string('ASR Test Instance: %f, Class ASR: %f' % (instance_acc, class_acc))
 
     logger.info('End of training...')
 

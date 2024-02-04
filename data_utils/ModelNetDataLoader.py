@@ -71,7 +71,7 @@ class ModelNetDataLoader(Dataset):
 
         shape_ids = {}
         if self.num_category == 10:
-            shape_ids['train'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_train_33.txt'))] # Fine-tune Dataset
+            shape_ids['train'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_train.txt'))] # Fine-tune Dataset
             shape_ids['test'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_test.txt'))]
             shape_ids['test_asr'] = [line.rstrip() for line in open(os.path.join(self.root, 'modelnet10_test_asr.txt'))] # asr 검증용 데이터셋
 
