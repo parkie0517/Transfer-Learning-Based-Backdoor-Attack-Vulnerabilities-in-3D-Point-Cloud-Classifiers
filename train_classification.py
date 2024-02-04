@@ -15,6 +15,8 @@ from pathlib import Path
 from tqdm import tqdm
 from data_utils.ModelNetDataLoader import ModelNetDataLoader
 
+from tensorboardX import SummaryWriter
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
@@ -246,5 +248,6 @@ def main(args):
     logger.info('End of training...')
 
 if __name__ == '__main__': # Step 1
+    writer = SummaryWriter('./logs/test/test-run1') # Write training results in './logs/' directory
     args = parse_args()
     main(args)
