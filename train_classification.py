@@ -256,7 +256,7 @@ def main(args):
     logger.info('End of training...')
 
 if __name__ == '__main__': # Step 1
-    writer = SummaryWriter('./tensorboard/pointnetPP/ft') # Write training results in './logs/' directory
+    writer = SummaryWriter('./tensorboard/pointnetPP/ft66') # Write training results in './logs/' directory
     args = parse_args()
     main(args)
     writer.close() # Must include this code when finish training results

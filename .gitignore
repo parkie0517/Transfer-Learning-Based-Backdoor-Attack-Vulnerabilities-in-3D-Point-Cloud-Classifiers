@@ -116,3 +116,6 @@ dmypy.json
 # Data and model
 data/
 log/
+
+# Tensorboard Logs
+tensorboard_logs/
