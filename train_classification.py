@@ -198,6 +198,8 @@ def main(args):
 
         train_instance_acc = np.mean(mean_correct)
         log_string('Train Instance Accuracy: %f' % train_instance_acc)
+        writer.add_scalar('Acc/train_acc', train_instance_acc, epoch) # use add_scalar() function to write
+
 
         with torch.no_grad(): # gradient 계산 안하기
             instance_acc, class_acc = test(classifier.eval(), testDataLoader, num_class=num_class)
@@ -210,7 +212,8 @@ def main(args):
                 best_class_acc = class_acc
             log_string('Test Instance Accuracy: %f, Class Accuracy: %f' % (instance_acc, class_acc))
             # log_string('Best Instance Accuracy: %f, Class Accuracy: %f' % (best_instance_acc, best_class_acc))
-
+            # Write on Tensorbard
+            writer.add_scalar('Acc/test_acc', instance_acc, epoch) # use add_scalar() function to write
             
             if (instance_acc >= best_instance_acc):
                 logger.info('Save model...')
@@ -241,13 +244,19 @@ def main(args):
                 }
                 torch.save(state, savepath)
 
-            # ASR
+            ##########################################################
+            # ASR ####################################################
+            ##########################################################
             instance_acc, class_acc = test(classifier.eval(), testASRDataLoader, num_class=num_class)
             log_string('ASR Test Instance: %f, Class ASR: %f' % (instance_acc, class_acc))
-
+            # Use tensorboard to record the validation acc and loss
+            writer.add_scalar('ASR/test_asr', instance_acc, epoch) # use add_scalar() function to write
+        
+        writer.flush() # make sure flush function is in the loop!
     logger.info('End of training...')
 
 if __name__ == '__main__': # Step 1
-    writer = SummaryWriter('./logs/test/test-run1') # Write training results in './logs/' directory
+    writer = SummaryWriter('./tensoarboard/pointnet/ft33') # Write training results in './logs/' directory
     args = parse_args()
     main(args)
+    writer.close() # Must include this code when finish training results
