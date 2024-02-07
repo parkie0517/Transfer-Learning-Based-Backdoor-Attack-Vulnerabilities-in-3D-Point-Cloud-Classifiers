@@ -1,4 +1,4 @@
-# A Study on Transfer Learning-Based Investigation of Backdoor Attack Vulnerabilities in 3D Point Cloud Classifiers
+# Investigating the Vulnerability of 3D Point Cloud Classifiers to Backdoor Attacks Leveraging Transfer Learning
 
 ## Full paper (Korean)
 View the full paper by clicking on the link below.  
