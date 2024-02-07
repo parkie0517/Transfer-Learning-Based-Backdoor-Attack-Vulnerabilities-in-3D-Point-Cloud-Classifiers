@@ -1,6 +1,4 @@
 # A Study on Transfer Learning-Based Investigation of Backdoor Attack Vulnerabilities in 3D Point Cloud Classifiers
-PointNet and PointNet++ codes were downloaded from the link below.  
-https://github.com/yanx27/Pointnet_Pointnet2_pytorch
 
 ## Full paper (Korean)
 View the full paper by clicking on the link below.  
@@ -20,3 +18,8 @@ Key Words : Transfer Learning, Point Cloud Classification, Backdoor Attack
 ![image](https://github.com/parkie0517/Transfer-Learning-Based-Backdoor-Attack-Vulnerabilities-in-3D-Point-Cloud-Classifiers/assets/80407632/f7621355-8dc2-4dfe-8135-da97d4e74700)  
 
 ![image](https://github.com/parkie0517/Transfer-Learning-Based-Backdoor-Attack-Vulnerabilities-in-3D-Point-Cloud-Classifiers/assets/80407632/7a190ea0-e70c-4e3b-bb33-a1d5d55e18ea)  
+
+
+## Codes
+PointNet and PointNet++ codes were downloaded from the link below.  
+https://github.com/yanx27/Pointnet_Pointnet2_pytorch
